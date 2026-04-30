@@ -6,20 +6,12 @@ const playToggle = document.getElementById("screen-play-toggle");
 const FALLBACK_IMAGE_URL = "assets/art-project-cat.png";
 const PLAYLIST = [
   {
-    src: "assets/No Pizza Transformation.mp4",
-    label: "No Pizza Transformation",
-  },
-  {
     src: "assets/Future Coding Cats.mp4",
     label: "Future Coding Cats",
   },
   {
-    src: "assets/Anime Code Adventure.mp4",
-    label: "Anime Code Adventure",
-  },
-  {
-    src: "assets/SaaSpocalypse Dystopia.mp4",
-    label: "SaaSpocalypse Dystopia",
+    src: "assets/Quirky Street Shouting.mp4",
+    label: "Quirky Street Shouting",
   },
   {
     src: "assets/Home Shopping Excitement.mp4",
@@ -38,9 +30,7 @@ let textureLoadNonce = 0;
 let activePlaybackVideo = null;
 let activeEndedHandler = null;
 
-function setHint(text) {
-  void text;
-}
+function setHint(_text) {}
 
 function setAudioButton(text, disabled = false) {
   if (!audioToggle) {
@@ -126,7 +116,6 @@ function bindPlaybackVideo(videoElement) {
   activeEndedHandler = () => {
     advancePlaylist().catch((error) => {
       console.error(error);
-      setHint("Playlist advance failed");
     });
   };
 
@@ -145,7 +134,6 @@ async function applyVideoTexture(index) {
 
   const loadId = ++textureLoadNonce;
   const videoItem = PLAYLIST[index];
-  setHint(`Loading ${videoItem.label}`);
 
   try {
     const videoTexture = await viewer.createVideoTexture(videoItem.src);
@@ -179,13 +167,11 @@ async function applyVideoTexture(index) {
     try {
       const fallbackTexture = await viewer.createTexture(FALLBACK_IMAGE_URL);
       screenBaseColorTexture.setTexture(fallbackTexture);
-      setHint("Video texture failed, cat fallback");
       setAudioButton("Sound Off", true);
       setPlayButton("Pause", true);
       isTextureVideoReady = false;
     } catch (fallbackError) {
       console.error(fallbackError);
-      setHint("Screen texture failed");
     }
   }
 }
@@ -230,21 +216,17 @@ async function setupLockedTexture() {
     return;
   }
 
-  setHint("Model loaded");
-
   const screenMaterial = viewer.model?.materials?.find(
     (material) => material.name === "Screen"
   );
 
   if (!screenMaterial) {
-    setHint("Screen material not found");
     return;
   }
 
   screenBaseColorTexture = screenMaterial.pbrMetallicRoughness.baseColorTexture;
 
   if (!screenBaseColorTexture) {
-    setHint("Screen texture slot missing");
     return;
   }
 
@@ -256,7 +238,6 @@ if (viewer) {
   viewer.addEventListener("load", setupLockedTexture);
 
   viewer.addEventListener("error", () => {
-    setHint("3D model failed to load");
     setAudioButton("Sound Off", true);
     setPlayButton("Pause", true);
   });
@@ -269,11 +250,6 @@ if (audioVideo) {
   bindPlaybackVideo(audioVideo);
 
   audioVideo.addEventListener("error", () => {
-    if (isTextureVideoReady) {
-      setHint("Locked video active, audio unavailable");
-    } else {
-      setHint("Video failed to load");
-    }
     setAudioButton("Sound Off", true);
     updatePlaybackButtons();
   });
@@ -321,7 +297,6 @@ if (audioToggle) {
       console.error(error);
       targetVideo.muted = true;
       setAudioButton("Enable Sound", false);
-      setHint("Tap sound again");
     }
   });
 }
