@@ -14,10 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600;1,700&family=Space+Grotesk:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <script
-      type="module"
-      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
-    ></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -36,8 +33,7 @@
             <h1 class="sr-only">The Slop Shop</h1>
             <div class="pixel-hero__content">
               <p class="pixel-hero__tagline">
-                The Slop Shop builds versions of your favorite SaaS tools. None of the fluff.
-                A fraction of the price.
+                We sell versions of your favorite SaaS tools at a fraction of the price.
               </p>
               <div class="pixel-hero__computer-wrap">
                 <div class="pixel-hero__computer-stage">
@@ -45,20 +41,31 @@
                     id="hero-computer-model"
                     class="pixel-hero__computer-model"
                     src="assets/hero-computer-screen.glb/Screen(TheSlopShop).glb"
-                    alt="3D computer hero"
-                    camera-orbit="15deg 90deg 58%"
-                    min-camera-orbit="15deg 90deg 58%"
-                    max-camera-orbit="15deg 90deg 58%"
+                    alt="Interactive 3D computer hero"
+                    camera-controls
+                    camera-orbit="-15deg 90deg 58%"
                     field-of-view="18deg"
-                    min-field-of-view="18deg"
-                    max-field-of-view="18deg"
+                    min-camera-orbit="auto 78deg 44%"
+                    max-camera-orbit="auto 106deg 78%"
+                    min-field-of-view="12deg"
+                    max-field-of-view="26deg"
                     interaction-prompt="none"
                     shadow-intensity="1"
                     environment-image="neutral"
                     exposure="1.05"
                     poster="assets/header-cat-office.png"
                   ></model-viewer>
-                  <div class="pixel-hero__screen-hint">Locked screen texture mode</div>
+                  <video id="hero-screen-audio" class="pixel-hero__screen-audio" loop playsinline preload="auto">
+                    <source src="assets/screen-demo.mp4" type="video/mp4" />
+                  </video>
+                  <div class="pixel-hero__screen-controls">
+                    <button id="screen-play-toggle" class="pixel-hero__video-toggle" type="button" disabled>
+                      Pause
+                    </button>
+                    <button id="screen-audio-toggle" class="pixel-hero__audio-toggle" type="button" disabled>
+                      Sound Off
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -67,6 +74,6 @@
         </section>
       </main>
     </div>
-    <script type="module" src="hero-computer.js?v=4"></script>
+    <script type="module" src="hero-computer.js?v=10"></script>
   </body>
 </html>
