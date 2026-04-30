@@ -1,7 +1,6 @@
 const viewer = document.getElementById("hero-computer-model");
 const audioVideo = document.getElementById("hero-screen-audio");
 const audioToggle = document.getElementById("screen-audio-toggle");
-const playToggle = document.getElementById("screen-play-toggle");
 
 const FALLBACK_IMAGE_URL = "assets/art-project-cat.png";
 const PLAYLIST = [
@@ -16,6 +15,10 @@ const PLAYLIST = [
   {
     src: "assets/Home Shopping Excitement.mp4",
     label: "Home Shopping Excitement",
+  },
+  {
+    src: "assets/Dynamic Presentation.mp4",
+    label: "Dynamic Presentation",
   },
   {
     src: "assets/90s Skateboarding Ad.mp4",
@@ -39,15 +42,6 @@ function setAudioButton(text, disabled = false) {
 
   audioToggle.textContent = text;
   audioToggle.disabled = disabled;
-}
-
-function setPlayButton(text, disabled = false) {
-  if (!playToggle) {
-    return;
-  }
-
-  playToggle.textContent = text;
-  playToggle.disabled = disabled;
 }
 
 function currentVideo() {
@@ -124,7 +118,6 @@ function bindPlaybackVideo(videoElement) {
 
 function updatePlaybackButtons() {
   setAudioButton(activePlaybackVideo?.muted ? "Sound Off" : "Sound On", !isTextureVideoReady);
-  setPlayButton(activePlaybackVideo?.paused ? "Play" : "Pause", !isTextureVideoReady);
 }
 
 async function applyVideoTexture(index) {
@@ -168,7 +161,6 @@ async function applyVideoTexture(index) {
       const fallbackTexture = await viewer.createTexture(FALLBACK_IMAGE_URL);
       screenBaseColorTexture.setTexture(fallbackTexture);
       setAudioButton("Sound Off", true);
-      setPlayButton("Pause", true);
       isTextureVideoReady = false;
     } catch (fallbackError) {
       console.error(fallbackError);
@@ -239,7 +231,6 @@ if (viewer) {
 
   viewer.addEventListener("error", () => {
     setAudioButton("Sound Off", true);
-    setPlayButton("Pause", true);
   });
 }
 
@@ -301,37 +292,5 @@ if (audioToggle) {
   });
 }
 
-if (playToggle) {
-  playToggle.addEventListener("click", async () => {
-    if (!isTextureVideoReady) {
-      return;
-    }
-
-    const targetVideo = activePlaybackVideo || audioVideo;
-
-    if (!targetVideo) {
-      return;
-    }
-
-    try {
-      if (targetVideo.paused) {
-        await targetVideo.play();
-      } else {
-        targetVideo.pause();
-      }
-
-      if (audioVideo && targetVideo !== audioVideo && targetVideo.paused) {
-        audioVideo.pause();
-      }
-
-      updatePlaybackButtons();
-    } catch (error) {
-      console.error(error);
-      setPlayButton("Play", false);
-    }
-  });
-}
-
 setAudioButton("Sound Off", true);
-setPlayButton("Pause", true);
 setHint(`Loading ${currentVideo().label}`);

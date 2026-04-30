@@ -238,34 +238,6 @@ img {
   cursor: default;
 }
 
-.pixel-hero__video-toggle {
-  pointer-events: auto;
-  min-height: 38px;
-  padding: 0 14px;
-  border: 1px solid rgba(255, 240, 234, 0.48);
-  border-radius: 999px;
-  background: rgba(255, 247, 239, 0.92);
-  color: rgba(72, 47, 34, 0.94);
-  font: inherit;
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  cursor: pointer;
-  box-shadow: 0 10px 24px rgba(74, 19, 36, 0.12);
-  transition:
-    transform 140ms ease,
-    opacity 140ms ease,
-    background-color 140ms ease;
-}
-
-.pixel-hero__video-toggle:hover:not(:disabled) {
-  transform: translateY(-1px);
-}
-
-.pixel-hero__video-toggle:disabled {
-  opacity: 0.55;
-  cursor: default;
-}
 
 .pixel-hero__tagline {
   width: min(440px, 100%);
