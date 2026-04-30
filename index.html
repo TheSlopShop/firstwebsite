@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Slop Shop</title>
+    <meta
+      name="description"
+      content="The Slop Shop builds stripped-down software tools with a loud animated intro."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600;1,700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand-mark" href="index.html">
+          <span class="brand-mark__icon">TSS</span>
+          <span>The Slop Shop</span>
+        </a>
+        <a class="nav-link" href="calenslop.html">See Calenslop</a>
+      </header>
+
+      <main>
+        <section class="pixel-hero">
+          <div class="pixel-hero__stage">
+            <h1 class="sr-only">The Slop Shop</h1>
+            <div class="pixel-hero__content">
+              <p class="pixel-hero__tagline">
+                The Slop Shop builds versions of your favorite SaaS tools. None of the fluff.
+                A fraction of the price.
+              </p>
+              <div class="pixel-hero__computer-wrap">
+                <div class="pixel-hero__computer-stage">
+                  <model-viewer
+                    id="hero-computer-model"
+                    class="pixel-hero__computer-model"
+                    src="assets/hero-computer-screen.glb/Screen(TheSlopShop).glb"
+                    alt="3D computer hero"
+                    camera-orbit="15deg 90deg 58%"
+                    min-camera-orbit="15deg 90deg 58%"
+                    max-camera-orbit="15deg 90deg 58%"
+                    field-of-view="18deg"
+                    min-field-of-view="18deg"
+                    max-field-of-view="18deg"
+                    interaction-prompt="none"
+                    shadow-intensity="1"
+                    environment-image="neutral"
+                    exposure="1.05"
+                    poster="assets/header-cat-office.png"
+                  ></model-viewer>
+                  <div class="pixel-hero__screen-hint">Locked screen texture mode</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+      </main>
+    </div>
+    <script type="module" src="hero-computer.js?v=4"></script>
+  </body>
+</html>

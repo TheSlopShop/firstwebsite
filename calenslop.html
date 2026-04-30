@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calenslop | The Slop Shop</title>
+    <meta
+      name="description"
+      content="Calenslop is the lightweight scheduling product from The Slop Shop."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-theme="cat">
+    <div class="page-shell page-shell--inner">
+      <header class="site-header">
+        <a class="brand-mark" href="index.html">
+          <span class="brand-mark__icon">TSS</span>
+          <span>The Slop Shop</span>
+        </a>
+        <div class="header-actions">
+          <label class="theme-picker" for="theme-select">
+            <span>Website Theme</span>
+            <select id="theme-select" aria-label="Website Theme">
+              <option value="cat">Cat Slop</option>
+              <option value="purple">Purple Slop</option>
+            </select>
+          </label>
+          <a class="nav-link" href="index.html">Back to shop</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="detail-hero">
+          <div>
+            <p class="eyebrow">Scheduling product</p>
+            <h1>Calenslop</h1>
+            <p class="hero-text">
+              A simpler scheduling tool for teams that want the booking link,
+              the reminder email, and the calendar sync without paying for
+              unnecessary shine.
+            </p>
+            <div class="hero-actions">
+              <a class="button button--primary" href="mailto:hello@theslop.shop"
+                >Request early access</a
+              >
+              <a class="button button--ghost" href="index.html">See all products</a>
+            </div>
+          </div>
+          <div class="detail-panel">
+            <p class="detail-panel__label">The short version</p>
+            <p>
+              Calenslop helps people book meetings faster, show up prepared, and
+              avoid scheduling chaos.
+            </p>
+          </div>
+        </section>
+
+        <section class="detail-grid">
+          <article class="detail-card">
+            <h2>What it does</h2>
+            <p>
+              Share a booking page, let someone pick a time, and automatically
+              send confirmations and reminders.
+            </p>
+          </article>
+
+          <article class="detail-card">
+            <h2>Why people buy it</h2>
+            <p>
+              It removes email ping-pong, gives sales and recruiting teams a
+              faster path to booked meetings, and keeps calendars organized.
+            </p>
+          </article>
+
+          <article class="detail-card">
+            <h2>What you actually need</h2>
+            <ul>
+              <li>Shareable scheduling links</li>
+              <li>Availability based on your calendar</li>
+              <li>Meeting confirmations and reminders</li>
+              <li>Simple team scheduling</li>
+            </ul>
+          </article>
+
+          <article class="detail-card">
+            <h2>What we skip</h2>
+            <p>
+              Layers of enterprise packaging, bloated setup, and pricing that
+              assumes every company is backed by a giant software budget.
+            </p>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script src="theme.js"></script>
+  </body>
+</html>
