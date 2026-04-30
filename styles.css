@@ -54,6 +54,13 @@ img {
   padding: 0 6px;
 }
 
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
 .brand-mark {
   display: inline-flex;
   align-items: center;
@@ -71,6 +78,33 @@ img {
   background: var(--ink);
   color: #fff4e7;
   font-size: 0.9rem;
+}
+
+.music-player {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 8px 10px 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 12px 30px rgba(92, 55, 24, 0.08);
+}
+
+.music-player__label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.music-player__audio {
+  display: block;
+  width: min(280px, 42vw);
+  height: 32px;
 }
 
 .nav-link,
@@ -336,6 +370,21 @@ img {
     align-items: flex-start;
     margin-bottom: 12px;
     padding: 0 2px;
+  }
+
+  .site-header__actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .music-player {
+    width: 100%;
+    border-radius: 22px;
+  }
+
+  .music-player__audio {
+    width: 100%;
   }
 
   .pixel-hero__stage {
